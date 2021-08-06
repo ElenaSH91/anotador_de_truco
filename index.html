@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Anotador de Truco</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="image/logo.png"/>
+  </head>
+  <body>
+    <section id="pantalla_1" class="visible">
+      <h1>Anotador de Truco</h1>
+      <input type="text" id="e1" maxlength="12" value="Equipo 1"> <br>
+      <input type="text" id="e2" maxlength="12" value="Equipo 2"> <br>
+      <button type="button" id="a24" class="botones">a 24</button>
+      <button type="button" id="a30" class="botones">a 30</button> <br>
+      <button type="button" id="btn_iniciar">Iniciar</button>
+    </section>
+
+    <section id="pantalla_2" class="oculto">
+      <div class="encabezado">
+        <div class="ladoE1">
+          <button type="button" id="suma_E1">+</button>
+          <p id="nombre_E1"></p>
+        </div>
+
+        <div class="ladoE2">
+          <p id="nombre_E2"></p>
+          <button type="button" id="suma_E2">+</button>
+        </div>
+      </div>
+
+        <div class="main_boxE1">
+          <div id="box_1">
+            <img src="image/0.png" id="E1_ima1" class="palitos"> <br>
+            <img src="image/0.png" id="E1_ima2" class="palitos"> <br>
+            <img src="image/0.png" id="E1_ima3" class="palitos">
+          </div>
+          <div id="box_2">
+            <img src="image/0.png" id="E2_ima1" class="palitos"> <br>
+            <img src="image/0.png" id="E2_ima2" class="palitos"> <br>
+            <img src="image/0.png" id="E2_ima3" class="palitos">
+          </div>
+        </div>
+
+        <div class="main_boxE2">
+          <div id="box_3">
+            <img src="image/0.png" id="E1_ima4" class="palitos"> <br>
+            <img src="image/0.png" id="E1_ima5" class="palitos"> <br>
+            <img src="image/0.png" id="E1_ima6" class="palitos">
+          </div>
+          <div id="box_4">
+            <img src="image/0.png" id="E2_ima4" class="palitos"> <br>
+            <img src="image/0.png" id="E2_ima5" class="palitos"> <br>
+            <img src="image/0.png" id="E2_ima6" class="palitos">
+          </div>
+       </div>
+
+      <div class="a2430">
+        <p id="objetivo"></p>
+      </div>
+
+      <div class="pie">
+        <button type="button" id="resta_E1" class="btn_puntos">-</button>
+        <p id="puntosE1">0</p>
+        <button type="button" id="btn_fin">Fin</button>
+        <p id="puntosE2">0</p>
+        <button type="button" id="resta_E2" class="btn_puntos">-</button>
+      </div>
+    </section>
+
+    <script src="js/jquery.js"></script>
+    <script>
+      $(document).ready( function() {
+        var jugador_1 = "";
+        var jugador_2 = "";
+        var puntaje_E1 = 0;
+        var puntaje_E2 = 0;
+        var objetivo = 0;
+
+        $("#btn_iniciar").on('click', iniciar);
+        $("#btn_fin").on('click', terminar);
+        $("#a24").on("click", function() {puntuacion(24)});
+        $("#a30").on("click", function() {puntuacion(30)});
+        $("#suma_E1").on("click", function() {sumar(1)});
+        $("#suma_E2").on("click", function() {sumar(2)});
+        $("#resta_E1").on("click", function() {restar(1)});
+        $("#resta_E2").on("click", function() {restar(2)});
+
+        // Función Iniciar //
+        function iniciar() {
+          jugador_1 = $("#e1").val();
+          jugador_2 = $("#e2").val();
+
+          if (jugador_1=="" || jugador_2=="") {
+            alert("Complete los campos Equipo 1 y Equipo 2");
+          } else if (objetivo==0) {
+            alert("Elija el objetivo del juego a 24 o a 30");
+          } else {
+            $("#pantalla_1").removeClass("visible").addClass("oculto");
+            $("#pantalla_2").removeClass("oculto").addClass("visible");
+          }
+
+        console.log("El nombre del Equipo 1 es "+jugador_1);
+        console.log("El nombre del Equipo 2 es "+jugador_2);
+        $("#nombre_E1").html(jugador_1);
+        $("#nombre_E2").html(jugador_2);
+        $("#objetivo").html("a "+objetivo);
+        }
+        // Función seleccionar a 24 o a 30 puntos //
+        function puntuacion(num) {
+          switch (num) {
+            case 24:
+              objetivo=num;
+              if ($("#a24").hasClass("botones")) {
+                $("#a24").removeClass().addClass("boton_ok");
+                $("#a30").removeClass().addClass("botones");
+                console.log("El objetivo del juego es "+objetivo);
+              }
+              break;
+            case 30:
+              objetivo=num;
+              if ($("#a30").hasClass("botones")) {
+                $("#a30").removeClass().addClass("boton_ok");
+                $("#a24").removeClass().addClass("botones");
+                console.log("El objetivo del juego es "+objetivo);
+              }
+              break;
+          }
+        }
+        // Función para sumar puntos //
+        function sumar(val) {
+          switch (val) {
+            case 1:
+              if (puntaje_E1<objetivo) {
+                puntaje_E1++;
+                $("#puntosE1").html(puntaje_E1);
+                mostrar_palitos(1);
+                console.log("Equipo 1 = "+puntaje_E1+" puntos.");
+              }
+              break;
+            case 2:
+              if (puntaje_E2<objetivo) {
+                puntaje_E2++;
+                mostrar_palitos(2);
+                $("#puntosE2").html(puntaje_E2);
+                console.log("Equipo 2 = "+puntaje_E2+" puntos.");
+              }
+              break;
+          }
+        }
+        // Función para restar puntos//
+        function restar(val) {
+          switch (val) {
+            case 1:
+              if (puntaje_E1>0) {
+                puntaje_E1--;
+                $("#puntosE1").html(puntaje_E1);
+                mostrar_palitos(1);
+                console.log("Equipo 1 = "+puntaje_E1+" puntos.");
+              }
+              break;
+            case 2:
+              if (puntaje_E2>0) {
+                puntaje_E2--;
+                $("#puntosE2").html(puntaje_E2);
+                mostrar_palitos(2);
+                console.log("Equipo 2 = "+puntaje_E2+" puntos.");
+              }
+              break;
+          }
+        }
+        // Función para dibujar los palitos//
+        function mostrar_palitos(val) {
+          switch (val) {
+            case 1: //Equipo 1
+              var puntosChequeo1 = puntaje_E1;
+
+              for (var i = 1; i < 7; i++) {
+                if (i==3 && objetivo==24) {
+                  if (puntosChequeo1 > 2) {
+                    $("#E1_ima"+i).attr("src", "image/2.png");
+                    puntosChequeo1 = puntosChequeo1 - 2;
+                  } else {
+                    $("#E1_ima"+i).attr("src", "image/"+puntosChequeo1+".png");
+                    puntosChequeo1 = 0;
+                  }
+                } else {
+                  if (puntosChequeo1 > 5) {
+                    $("#E1_ima"+i).attr("src", "image/5.png");
+                    puntosChequeo1 = puntosChequeo1 - 5;
+                  } else {
+                    $("#E1_ima"+i).attr("src", "image/"+puntosChequeo1+".png");
+                    puntosChequeo1 = 0;
+                  }
+                }
+              }
+              break;
+            case 2: //Equipo 2
+              var puntosChequeo2 = puntaje_E2;
+
+              for (var i = 1; i < 7; i++) {
+                if (i==3 && objetivo==24) {
+                  if (puntosChequeo2 > 2) {
+                    $("#E2_ima"+i).attr("src", "image/2.png");
+                    puntosChequeo2 = puntosChequeo2 - 2;
+                  } else {
+                    $("#E2_ima"+i).attr("src", "image/"+puntosChequeo2+".png");
+                    puntosChequeo2 = 0;
+                  }
+                } else {
+                  if (puntosChequeo2 > 5) {
+                    $("#E2_ima"+i).attr("src", "image/5.png");
+                    puntosChequeo2 = puntosChequeo2 - 5;
+                  } else {
+                    $("#E2_ima"+i).attr("src", "image/"+puntosChequeo2+".png");
+                    puntosChequeo2 = 0;
+                  }
+                }
+              }
+              break;
+          }
+        }
+
+        // Función para finalizar el juego //
+        function terminar() {
+          objetivo = 0;
+          puntaje_E1 = 0;
+          puntaje_E2 = 0;
+          $("#a30").removeClass().addClass("botones");
+          $("#a24").removeClass().addClass("botones");
+          $("#pantalla_2").removeClass("visible").addClass("oculto");
+          $("#pantalla_1").removeClass("oculto").addClass("visible");
+          $(".palitos").attr("src","image/0.png");
+          $("#puntosE1").html("0");
+          $("#puntosE2").html("0");
+        }
+      });
+    </script>
+  </body>
+</html>

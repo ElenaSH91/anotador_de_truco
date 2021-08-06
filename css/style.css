@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap');
+html {
+
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #008000;
+}
+
+h1 {
+  margin-bottom: 0vh;
+  padding: 5vh;
+  font-family: 'Heebo', sans-serif;
+  text-align: center;
+  font-size: 62pt;
+  font-weight: bolder;
+  color: #fff;
+}
+
+p {
+  font-family: 'Heebo', sans-serif;
+  text-align: center;
+  color: #fff;
+}
+
+img {
+  width: 80%;
+  height: auto;
+  padding: .5vh;
+}
+
+section {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+input {
+  margin-top: 6vh;
+  padding: 3vh;
+  font-family: 'Heebo', sans-serif;
+  text-align: center;
+  font-size: 50pt;
+  color: #fff;
+  border: 3px solid #fff;
+  background-color: #029c02;
+  border-radius: 15px;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  font-family: 'Heebo', sans-serif;
+  text-align: center;
+  color: #fff;
+  border: 3px solid #fff;
+  background-color: #029c02;
+  border-radius: 15px;
+}
+
+button:hover {
+  background-color: #fff;
+  color: #008000;
+}
+
+#pantalla_1 {
+
+
+}
+
+#pantalla_2 {
+
+}
+
+#a24 {
+  width: 30vw;
+  font-size: 50pt;
+  margin: 6vh 2vw 6vh 0vw;
+  padding: 3vh;
+}
+
+#a30 {
+  width: 30vw;
+  font-size: 50pt;
+  margin: 6vh 0vw 6vh 2vw;
+  padding: 3vh;
+}
+
+#btn_iniciar {
+  width: 30vw;
+  font-size: 50pt;
+  margin-bottom: 6vh;
+  padding: 3vh;
+}
+
+#btn_fin {
+  font-size: 40pt;
+  margin: 2vw;
+  padding: 2vh;
+}
+
+#suma_E1 {
+  width: 14vw;
+  height: 8vh;
+  font-size: 50pt;
+  margin: 1vh;
+  padding: 0vh 3vw 0vh 3vw;
+}
+
+#suma_E2 {
+  width: 14vw;
+  height: 8vh;
+  font-size: 50pt;
+  margin: 1vh;
+  padding: 0vh 3vw 0vh 3vw;
+}
+
+#box_1 {
+  padding: 3vh 15vw 3vh 0vw;
+  border-right: 3px solid #fff;
+  text-align: center;
+  width: 20vw;
+}
+#box_2 {
+  padding: 3vh 0vw 3vh 15vw;
+  border-left: 3px solid #fff;
+  text-align: center;
+  width: 20vw;
+}
+#box_3 {
+  padding: 3vh 15vw 3vh 0vw;
+  border-right: 3px solid #fff;
+  text-align: center;
+  width: 20vw;
+}
+#box_4 {
+  padding: 3vh 0vw 3vh 15vw;
+  border-left: 3px solid #fff;
+  text-align: center;
+  width: 20vw;
+}
+
+#resta_E1 {
+  width: 15vw;
+  height: 8vh;
+  font-size: 50pt;
+  margin: 1.5vh;
+  padding: 0vh 3vw 0vh 3vw;
+}
+
+#resta_E2 {
+  width: 15vw;
+  height: 8vh;
+  font-size: 50pt;
+  margin: 1.5vh;
+  padding: 0vh 3vw 0vh 3vw;
+}
+
+#puntosE1 {
+  width: 20vw;
+  font-size: 50pt;
+  margin: 1vw;
+  padding: 2vh 2vw;
+}
+
+
+#objetivo {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 35pt;
+}
+
+#puntosE2 {
+  width: 20vw;
+  font-size: 50pt;
+  margin: 1vw;
+  padding: 2vh 2vw;
+}
+
+.visible {
+  display: block;
+  visibility: visible;
+}
+
+.oculto {
+  display: none;
+  visibility: hidden;
+}
+
+.botones {
+
+}
+
+.boton_ok {
+  margin: 0px;
+  padding: 10px 20px;
+  width: 105px;
+  background-color: #de7a16;
+}
+
+.boton_ok:hover {
+  background-color: #fff;
+  color: #de7a16;
+}
+
+.encabezado {
+  height: 11vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  }
+
+.ladoE1 {
+  width: 50vw;
+  height: 11vh;
+  display: flex;
+  border-right: 3px solid #fff;
+  align-items: center;
+}
+
+.ladoE1 p {
+  margin: 1vh;
+  padding: 3vh 3vw 0vh 0vw;
+  width: 25vw;
+  font-size: 35pt;
+  display: inline-block;
+  justify-content: right;
+}
+
+.ladoE2 {
+  width: 50vw;
+  height: 11vh;
+  display: flex;
+  border-left: 3px solid #fff;
+  align-items: center;
+}
+
+.ladoE2 p {
+  margin: 1vh;
+  padding: 3vh 0vw 0vh 3vw;
+  width: 25vw;
+  font-size: 35pt;
+  display: inline-block;
+  justify-content: left;
+  }
+
+.main_boxE1 {
+  margin: 0 auto;
+  border-top: 3px solid #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.main_boxE2 {
+  margin: 0 auto;
+  border-top: 3px solid #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pie {
+  height: 11vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.a2430 {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
